@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Aniyah Williams</title>
+<meta name="description" content="Get in touch with Aniyah Williams — illustrator and graphic designer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="site-header">
+  <a href="index.html" class="logo">Aniyah Williams</a>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="resume.html">Resume</a>
+    <a href="index.html#about">About</a>
+    <a href="contact.html" class="nav-cta">Contact</a>
+  </nav>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main id="top">
+
+  <!-- PAGE INTRO -->
+  <section class="page-intro">
+    <p class="eyebrow">Contact</p>
+    <h1>Let's Talk<span class="scribble" aria-hidden="true"></span></h1>
+    <p class="hero-sub">Have a project in mind, or just want to say hi? Fill out the form below and it'll land straight in my inbox.</p>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section class="contact-page-section">
+    <form class="contact-form" action="https://formsubmit.co/Aniyah.6424@gmail.com" method="POST">
+      <!-- FormSubmit configuration -->
+      <input type="hidden" name="_subject" value="New message from your portfolio site">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="_honey" class="form-honey" tabindex="-1" autocomplete="off">
+
+      <div class="form-field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="form-field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+
+    <p class="contact-form-note">
+      First time this form is used, FormSubmit will send a one-time confirmation link to Aniyah's inbox — click it once and every message after that arrives automatically.
+      Prefer email directly? Reach out at <a href="mailto:Aniyah.6424@gmail.com">Aniyah.6424@gmail.com</a>.
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>&copy; <span id="year"></span> Aniyah Williams. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

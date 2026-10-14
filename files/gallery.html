@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — Aniyah Williams</title>
+<meta name="description" content="Illustration and graphic design gallery by Aniyah Williams — branding, digital illustration, and web design.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="site-header">
+  <a href="index.html" class="logo">Aniyah Williams</a>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="gallery.html" class="active">Gallery</a>
+    <a href="resume.html">Resume</a>
+    <a href="index.html#about">About</a>
+    <a href="contact.html" class="nav-cta">Contact</a>
+  </nav>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main id="top">
+
+  <!-- PAGE INTRO -->
+  <section class="page-intro">
+    <p class="eyebrow">Gallery</p>
+    <h1>The Work<span class="scribble" aria-hidden="true"></span></h1>
+    <p class="hero-sub">Branding, digital illustration, and web design — click any piece for a closer look.</p>
+  </section>
+
+  <!-- BRANDING & LOGO DESIGN -->
+  <section id="branding" class="gallery-section">
+    <div class="section-head">
+      <p class="eyebrow">01 · Branding</p>
+      <h2>Branding &amp; Logo Design</h2>
+      <p class="section-sub">Logo concepts and identity work, brought to life on real products.</p>
+    </div>
+    <div class="gallery" data-gallery="branding">
+
+      <!-- Holly Hopper: carousel (click between logo and sweatshirt mockup) -->
+      <figure class="card polaroid pin-a carousel-card">
+        <span class="tape c2" aria-hidden="true"></span>
+        <div class="carousel-viewport">
+          <button type="button" class="card-trigger carousel-slide" data-full="assets/holly-hopper-logo.png" data-title="Holly Hopper Clothing Brand Logo Concept" data-tag="Logo">
+            <img src="assets/holly-hopper-logo.png" alt="Holly Hopper Clothing Brand Logo Concept" loading="lazy">
+          </button>
+          <button type="button" class="card-trigger carousel-slide" data-full="assets/holly-hopper-sweatshirt-mockup.jpg" data-title="Holly Hopper Clothing Brand Logo Concept" data-tag="Mockup" hidden>
+            <img src="assets/holly-hopper-sweatshirt-mockup.jpg" alt="Holly Hopper Clothing Brand Logo Concept" loading="lazy">
+          </button>
+          <button type="button" class="carousel-arrow carousel-prev" aria-label="Previous image">&#10094;</button>
+          <button type="button" class="carousel-arrow carousel-next" aria-label="Next image">&#10095;</button>
+          <div class="carousel-dots">
+            <button type="button" class="carousel-dot active" aria-label="Show logo"></button>
+            <button type="button" class="carousel-dot" aria-label="Show sweatshirt mockup"></button>
+          </div>
+        </div>
+        <figcaption><span class="tag">Logo</span>Holly Hopper Clothing Brand Logo Concept</figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+  <!-- DIGITAL ILLUSTRATION -->
+  <section id="illustration" class="gallery-section alt">
+    <div class="section-head">
+      <p class="eyebrow">02 · Illustration</p>
+      <h2>Digital Illustration</h2>
+      <p class="section-sub">Character art, sketches, and narrative pieces made for clients and personal projects.</p>
+    </div>
+    <div class="gallery" data-gallery="illustration">
+      <figure class="card polaroid pin-c">
+        <span class="tape c1" aria-hidden="true"></span>
+        <button type="button" class="card-trigger" data-full="assets/growing-flowers.jpg" data-title="Growing Flowers">
+          <img src="assets/growing-flowers.jpg" alt="Growing Flowers" loading="lazy">
+        </button>
+        <figcaption><span class="tag">Illustration</span>Growing Flowers</figcaption>
+      </figure>
+      <figure class="card polaroid pin-a">
+        <span class="tape c3" aria-hidden="true"></span>
+        <button type="button" class="card-trigger" data-full="assets/chinese-american-museum-bookmark.jpg" data-title="Chinese American Museum Bookmark">
+          <img src="assets/chinese-american-museum-bookmark.jpg" alt="Chinese American Museum Bookmark" loading="lazy">
+        </button>
+        <figcaption><span class="tag">Illustration</span>Chinese American Museum Bookmark</figcaption>
+      </figure>
+      <figure class="card polaroid pin-b">
+        <span class="tape c2" aria-hidden="true"></span>
+        <button type="button" class="card-trigger" data-full="assets/princess-and-her-dragon.jpg" data-title="A Princess And Her Dragon">
+          <img src="assets/princess-and-her-dragon.jpg" alt="A Princess And Her Dragon" loading="lazy">
+        </button>
+        <figcaption><span class="tag">Illustration</span>A Princess And Her Dragon</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- WEB DESIGN -->
+  <section id="web-design" class="gallery-section">
+    <div class="section-head">
+      <p class="eyebrow">03 · Web Design</p>
+      <h2>Web Design</h2>
+      <p class="section-sub">Full site design and layout, from illustration to interface.</p>
+    </div>
+    <div class="gallery gallery-wide" data-gallery="web-design">
+      <figure class="card polaroid pin-a">
+        <span class="tape c1" aria-hidden="true"></span>
+        <button type="button" class="card-trigger"
+          data-full="assets/mangastars-website.jpg"
+          data-title="MangaStars Website"
+          data-link="https://xd.adobe.com/view/fbc88819-b9a7-4cab-a18f-7c09ad77867a-ae9b/"
+          data-link-label="Prototype">
+          <img src="assets/mangastars-website.jpg" alt="MangaStars Website" loading="lazy">
+        </button>
+        <figcaption><span class="tag">Web Design</span>MangaStars Website</figcaption>
+      </figure>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>&copy; <span id="year"></span> Aniyah Williams. All rights reserved. &middot; <a href="terms.html">Terms &amp; Conditions</a></p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+  <figure class="lightbox-figure">
+    <img id="lightboxImage" src="" alt="">
+    <figcaption id="lightboxCaption"></figcaption>
+    <div class="lightbox-extra" id="lightboxExtra"></div>
+  </figure>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

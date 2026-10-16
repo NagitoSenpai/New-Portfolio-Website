@@ -228,8 +228,9 @@ document.querySelectorAll(".carousel-card").forEach((card) => {
   });
 
   // Pause while the mouse is over the card, or while it has keyboard focus.
-  card.addEventListener("mouseenter", stopAutoplay);
-  card.addEventListener("mouseleave", startAutoplay);
+  // Mouse hover only — on touch screens a tap would otherwise "stick" the pause.
+  card.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") stopAutoplay(); });
+  card.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") startAutoplay(); });
   card.addEventListener("focusin", stopAutoplay);
   card.addEventListener("focusout", startAutoplay);
 

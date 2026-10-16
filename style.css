@@ -39,9 +39,11 @@
   --paper: #F3EFE6;
 
   --font-display: "Hukela Wild Display", Georgia, serif;
+  --display-tracking: 0.016em; /* tracking 16 (1/1000 em units) */
   --font-body: "Garvistest", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: "Garvistest", -apple-system, BlinkMacSystemFont, sans-serif; /* accent cut — always paired with font-style: italic */
 
+  --gutter: clamp(20px, 5vw, 56px);
   --radius: 6px;
   --max-width: 1180px;
   --section-pad: clamp(64px, 9vw, 120px);
@@ -102,7 +104,7 @@ img { max-width: 100%; display: block; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px clamp(20px, 5vw, 56px);
+  padding: 20px var(--gutter);
   background: rgba(220, 212, 196, 0.88);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(59, 62, 85, 0.12);
@@ -110,11 +112,11 @@ img { max-width: 100%; display: block; }
 
 .logo {
   font-family: var(--font-display);
+  letter-spacing: var(--display-tracking);
   font-weight: 600;
   font-size: 1.15rem;
   text-decoration: none;
   color: var(--ink);
-  letter-spacing: 0.01em;
 }
 
 .nav {
@@ -217,13 +219,14 @@ img { max-width: 100%; display: block; }
   position: relative;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: clamp(80px, 12vw, 150px) clamp(20px, 5vw, 56px) var(--section-pad);
+  padding: clamp(80px, 12vw, 150px) var(--gutter) var(--section-pad);
 }
 
 .hero-inner { max-width: 760px; }
 
 .hero h1 {
   font-family: var(--font-display);
+  letter-spacing: var(--display-tracking);
   font-weight: 600;
   font-size: clamp(2.4rem, 6vw, 4.2rem);
   line-height: 1.05;
@@ -278,11 +281,12 @@ img { max-width: 100%; display: block; }
 .page-intro {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: clamp(64px, 10vw, 110px) clamp(20px, 5vw, 56px) 20px;
+  padding: clamp(64px, 10vw, 110px) var(--gutter) 20px;
 }
 
 .page-intro h1 {
   font-family: var(--font-display);
+  letter-spacing: var(--display-tracking);
   font-weight: 600;
   font-size: clamp(2.2rem, 5vw, 3.4rem);
   margin: 0 0 18px;
@@ -300,7 +304,7 @@ img { max-width: 100%; display: block; }
 .gallery-section {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: var(--section-pad) clamp(20px, 5vw, 56px);
+  padding: var(--section-pad) var(--gutter);
 }
 
 .gallery-section.alt {
@@ -308,11 +312,9 @@ img { max-width: 100%; display: block; }
   background: var(--paper);
   border-top: 1px solid rgba(59,62,85,0.1);
   border-bottom: 1px solid rgba(59,62,85,0.1);
-}
-.gallery-section.alt > * {
-  max-width: var(--max-width);
-  margin-left: auto;
-  margin-right: auto;
+  /* keep content on the same left edge as the non-tinted sections */
+  padding-left: max(var(--gutter), calc((100% - var(--max-width)) / 2 + var(--gutter)));
+  padding-right: max(var(--gutter), calc((100% - var(--max-width)) / 2 + var(--gutter)));
 }
 
 .section-head {
@@ -322,6 +324,7 @@ img { max-width: 100%; display: block; }
 
 .section-head h2 {
   font-family: var(--font-display);
+  letter-spacing: var(--display-tracking);
   font-size: clamp(1.9rem, 3.5vw, 2.7rem);
   margin: 0 0 14px;
   font-weight: 600;
@@ -335,13 +338,13 @@ img { max-width: 100%; display: block; }
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
   gap: 64px 44px;
   padding-top: 10px;
 }
 
 .gallery-wide {
-  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr));
 }
 
 #web-design .gallery {
@@ -355,9 +358,9 @@ img { max-width: 100%; display: block; }
 }
 .card:hover { transform: translateY(-6px); }
 
-.card.pin-a { transform: rotate(-2deg); }
-.card.pin-b { transform: rotate(1.6deg); }
-.card.pin-c { transform: rotate(-1deg); }
+.card.pin-a { --tilt: -2deg; transform: rotate(var(--tilt)); }
+.card.pin-b { --tilt: 1.6deg; transform: rotate(var(--tilt)); }
+.card.pin-c { --tilt: -1deg; transform: rotate(var(--tilt)); }
 .card.pin-a:hover, .card.pin-b:hover, .card.pin-c:hover { transform: translateY(-6px) rotate(0deg); }
 
 .card-image {
@@ -474,6 +477,8 @@ img { max-width: 100%; display: block; }
 .carousel-slide[hidden] {
   display: none;
 }
+
+.polaroid .carousel-slide img { aspect-ratio: 5 / 4; }
 
 .carousel-arrow {
   position: absolute;
@@ -629,7 +634,7 @@ figcaption {
 .about-section {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: var(--section-pad) clamp(20px, 5vw, 56px);
+  padding: var(--section-pad) var(--gutter);
 }
 
 .about-grid {
@@ -661,6 +666,7 @@ figcaption {
 
 .about-copy h2 {
   font-family: var(--font-display);
+  letter-spacing: var(--display-tracking);
   font-size: clamp(1.9rem, 3.5vw, 2.6rem);
   margin: 0 0 20px;
   font-weight: 600;
@@ -697,11 +703,12 @@ figcaption {
   background: var(--navy);
   color: var(--paper);
   text-align: center;
-  padding: var(--section-pad) clamp(20px, 5vw, 56px);
+  padding: var(--section-pad) var(--gutter);
 }
 .contact-section .eyebrow { color: var(--coral); }
 .contact-section h2 {
   font-family: var(--font-display);
+  letter-spacing: var(--display-tracking);
   font-weight: 600;
   font-size: clamp(2rem, 4.5vw, 3rem);
   margin: 0 0 18px;
@@ -751,7 +758,7 @@ figcaption {
 .legal-section {
   max-width: 760px;
   margin: 0 auto;
-  padding: 10px clamp(20px, 5vw, 56px) var(--section-pad);
+  padding: 10px var(--gutter) var(--section-pad);
 }
 
 .legal-block { margin-bottom: 36px; }
@@ -759,6 +766,7 @@ figcaption {
 
 .legal-block h2 {
   font-family: var(--font-display);
+  letter-spacing: var(--display-tracking);
   font-size: 1.3rem;
   font-weight: 400;
   margin: 0 0 12px;
@@ -797,7 +805,7 @@ figcaption {
 .contact-page-section {
   max-width: 680px;
   margin: 0 auto;
-  padding: 10px clamp(20px, 5vw, 56px) var(--section-pad);
+  padding: 10px var(--gutter) var(--section-pad);
 }
 
 .contact-form {
@@ -898,7 +906,7 @@ figcaption {
 .resume-section {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 20px clamp(20px, 5vw, 56px) var(--section-pad);
+  padding: 20px var(--gutter) var(--section-pad);
 }
 
 .resume-layout {
@@ -915,6 +923,7 @@ figcaption {
 
 .resume-block h2 {
   font-family: var(--font-display);
+  letter-spacing: var(--display-tracking);
   font-size: 1.4rem;
   font-weight: 600;
   margin: 0 0 20px;
@@ -1094,16 +1103,30 @@ figcaption {
 
 /* ---------- Responsive nav ---------- */
 
-@media (max-width: 480px) {
-  .polaroid { padding: 12px 12px 56px; }
-  .polaroid figcaption { left: 12px; right: 12px; bottom: 12px; font-size: 0.95rem; }
-  .carousel-arrow { width: 30px; height: 30px; }
+/* ===========================================================
+   Responsive: tablet (<= 1024px) and phone (<= 600px)
+=========================================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  :root { --section-pad: clamp(56px, 8vw, 90px); --gutter: 28px; }
+
+  .site-header { padding: 16px var(--gutter); }
+  .nav { gap: 20px; }
+
+  .hero { padding-top: 90px; }
+  .hero h1 { font-size: clamp(2.4rem, 6.4vw, 3.6rem); }
+
+  .gallery { gap: 56px 36px; }
+  .about-grid { gap: 36px; }
+  .resume-layout { gap: 40px; }
 }
 
+/* Mobile navigation (small tablets and phones) */
 @media (max-width: 760px) {
   .nav {
-    position: fixed;
-    top: 68px;
+    position: absolute;
+    top: 100%;
     left: 0;
     right: 0;
     background: var(--bg);
@@ -1112,12 +1135,85 @@ figcaption {
     gap: 0;
     padding: 8px 24px 20px;
     border-bottom: 1px solid rgba(59,62,85,0.12);
-    transform: translateY(-120%);
+    transform: translateY(-12px);
     opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 0.25s ease, opacity 0.25s ease, visibility 0s linear 0.25s;
+  }
+  .nav.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
     transition: transform 0.25s ease, opacity 0.25s ease;
   }
-  .nav.open { transform: translateY(0); opacity: 1; }
-  .nav a { width: 100%; padding: 12px 0; }
-  .nav-cta { margin-top: 8px; text-align: center; }
-  .nav-toggle { display: flex; }
+  .nav a { width: 100%; padding: 14px 0; font-size: 1.05rem; }
+  .nav a:not(.nav-cta)::after { display: none; }
+  .nav-cta { margin-top: 10px; text-align: center; }
+  .nav-toggle { display: flex; padding: 10px; }
+
+  .about-grid { grid-template-columns: 1fr; }
+  .about-image { max-width: 420px; }
+}
+
+/* Phone */
+@media (max-width: 600px) {
+  html { font-size: 100%; }
+  :root { --section-pad: 56px; --gutter: 18px; }
+
+  .site-header { padding: 12px var(--gutter); }
+  .logo { font-size: 1.05rem; }
+
+  .hero { padding: 56px var(--gutter) 48px; }
+  .hero h1 { font-size: clamp(2.1rem, 10vw, 2.8rem); margin-bottom: 20px; }
+  .hero h1 br { display: none; }
+  .hero-sub { font-size: 1.1rem; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .btn { text-align: center; }
+
+  .page-intro { padding: 48px var(--gutter) 12px; }
+  .page-intro h1 { font-size: clamp(2rem, 9vw, 2.6rem); }
+
+  .gallery-section { padding-top: 48px; padding-bottom: 48px; }
+
+  .section-head { margin-bottom: 32px; }
+  .section-sub, .about-copy p { font-size: 1.05rem; }
+
+  .gallery { grid-template-columns: 1fr; gap: 48px; }
+  .card.pin-a { --tilt: -1deg; }
+  .card.pin-b { --tilt: 0.8deg; }
+  .card.pin-c { --tilt: -0.5deg; }
+
+  .polaroid { padding: 12px 12px 60px; }
+  .polaroid figcaption { left: 12px; right: 12px; bottom: 12px; font-size: 1rem; }
+  .tape { width: 60px; height: 22px; top: -12px; }
+
+  .carousel-arrow { width: 40px; height: 40px; }
+  .carousel-prev { left: 6px; }
+  .carousel-next { right: 6px; }
+
+  .lightbox { padding: 56px 12px 20px; }
+  .lightbox-figure img { max-height: 68vh; }
+  .lightbox-close { top: 8px; right: 10px; }
+
+  .resume-entry-head { flex-direction: column; gap: 2px; }
+  .resume-date { white-space: normal; }
+  .resume-block h2 { font-size: 1.25rem; }
+
+  .contact-actions { flex-direction: column; align-items: stretch; }
+  .contact-actions .btn { text-align: center; word-break: break-word; }
+  .social-links { gap: 18px; }
+  .contact-form { padding: 22px 18px; }
+  .contact-form .btn-primary { align-self: stretch; text-align: center; }
+  .form-field input, .form-field textarea { font-size: 1rem; }
+
+  .loader-gif { width: 104px; height: 104px; }
+  .site-footer { padding: 22px 16px; line-height: 1.7; }
+}
+
+/* Touch devices: no sticky hover lift */
+@media (hover: none) {
+  .card:hover,
+  .card.pin-a:hover, .card.pin-b:hover, .card.pin-c:hover { transform: rotate(var(--tilt, 0deg)); }
 }

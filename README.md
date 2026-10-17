@@ -6,7 +6,7 @@ A clean, static, three-page portfolio site — Home, Gallery, and Resume — sty
 
 ## Pages
 - `index.html` — Home: hero, a work preview, About, a quick-contact section
-- `gallery.html` — Gallery: Branding & Logo Design, Digital Illustration, and Web Design, with a click-to-enlarge lightbox on every piece
+- `gallery.html` — Gallery: Digital Illustration, Branding & Logo Design, Web Design, and Photography, with a click-to-enlarge lightbox on every piece
 - `resume.html` — Resume: filled in with your info from the PDF (a few typos cleaned up: "graduate," "Graduated," "Affinity Designer," "Collaborative," "distribution," "programming")
 - `contact.html` — Contact: a form that emails submissions straight to you (see "Contact form" below)
 - `terms.html` — Terms & Conditions: states that images on the site may not be scraped, downloaded, or used to train AI models, linked from every page's footer
@@ -46,6 +46,7 @@ Clicking **Gallery** or **Contact** in the nav bar plays a full-screen animated 
 - `— Branding & Logo Design` → the `#branding` section
 - `— Digital Illustration` → the `#illustration` section
 - `— Web Design` → the `#web-design` section
+- `— Photography` → the `#photography` section
 
 **That suffix is only a sorting label — it should NOT appear in the title shown on the site.** The site strips it off: only `Piece Title` is used in the caption, lightbox, and alt text, since which section a piece is in is already obvious from the page section it's sitting in.
 
